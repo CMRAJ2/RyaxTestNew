@@ -1,0 +1,57 @@
+apiVersion: "ryax.tech/v2.0"
+kind: Processor
+spec:
+  id: querymaker
+  human_name: Use openai to infeer query on a given database
+  type: python3
+  version: "0.0.1"
+  logo: "logo.png"
+  description: "From a user prompt and a database connection infeer a query from it."
+  categories:
+  - Processor
+  - mssql
+  - OpenAI
+  dependencies:
+  - unixODBCDrivers.msodbcsql17
+  inputs:
+  - help: openai api type
+    human_name: openai_type
+    name: openai_type
+    type: string
+  - help: openai api base
+    human_name: openai_base
+    name: openai_base
+    type: string
+  - help: openai api version
+    human_name: openai_version
+    name: openai_version
+    type: string
+  - help: openai api key
+    human_name: openai_key
+    name: openai_key
+    type: string
+  - help: mssql server ip or hostname
+    human_name: mssql_server
+    name: mssql_server
+    type: string
+  - help: mssql server username
+    human_name: mssql_username
+    name: mssql_username
+    type: string
+  - help: mssql server password
+    human_name: mssql_password
+    name: mssql_password
+    type: string
+  - help: mssql server database name
+    human_name: mssql_database
+    name: mssql_database
+    type: string
+  - help: What do you want to know about the data? Enter your query here
+    human_name: user_query
+    name: user_quer
+    type: longstring
+  outputs:
+  - help: File with the output as a csv.
+    human_name: query_result_file
+    name: query_result_file
+    type: file
